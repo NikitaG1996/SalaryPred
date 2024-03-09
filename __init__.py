@@ -1,0 +1,1 @@
+print('Salary Prediction Project File Initiated'.center(80,'*'))

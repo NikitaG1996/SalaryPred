@@ -1,0 +1,188 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>Salary Prediction</title>
+    <style>
+        *, *:before, *:after {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+          }
+          
+          body {
+            font-family: 'Nunito', sans-serif;
+            color: #F2EBF0  ;
+            background: #CDC8CC
+          }
+          
+          form {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 10px 20px;
+            background: #925081   ;
+            border-radius: 8px;
+          }
+          
+          h1 {
+            margin: 0 0 30px 0;
+            text-align: center;
+          }
+          
+          input[type="text"],
+          input[type="password"],
+          input[type="date"],
+          input[type="datetime"],
+          input[type="email"],
+          input[type="number"],
+          input[type="search"],
+          input[type="tel"],
+          input[type="time"],
+          input[type="url"],
+          textarea,
+          select {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            font-size: 16px;
+            height: auto;
+            margin: 0;
+            outline: 0;
+            padding: 15px;
+            width: 100%;
+            background-color: #e8eeef;
+            color: #8a97a0;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+            margin-bottom: 30px;
+          }
+          
+          input[type="radio"],
+          input[type="checkbox"] {
+            margin: 0 4px 8px 0;
+          }
+          
+          select {
+            padding: 6px;
+            height: 32px;
+            border-radius: 2px;
+          }
+          
+          
+        
+          .button {
+            align:center
+            border-radius: 4px;
+            background-color: #4bc970;
+            border: none;
+            color: #FFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 100%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+          }
+          
+          .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+          }
+          
+          .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+          }
+          
+          .button:hover span {
+            padding-right: 25px;
+          }
+          
+          .button:hover span:after {
+            opacity: 1;
+            right: 0;
+          }
+          
+          fieldset {
+            margin-bottom: 15px;
+            border: none;
+          }
+          
+          legend {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+          }
+          
+          label {
+            display: block;
+            margin-bottom: 10px;
+          }
+        
+          label.bmi{
+            margin-top: 15px
+          }
+          
+          label.light {
+            font-weight: 300;
+            display: inline;
+            
+          }
+          
+          .number {
+            background-color: #5fcf80;
+            color: #fff;
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            font-size: 0.8em;
+            margin-right: 4px;
+            line-height: 30px;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+            border-radius: 100%;
+          }
+          
+          @media screen and (min-width: 480px) {
+          
+            form {
+              max-width: 480px;
+            }
+          
+          }
+    </style>
+    </head>
+    <body>
+      <div class="row">
+      <div class="col-md-12">
+      <form action="/predict_salary" method="post">
+      <h1>Salary Prediction Form</h1>
+      <fieldset>
+          
+          <label for="Total_Experience">Total Experience:</label>
+          <input type="text" id="Total_Experience" name="Total_Experience">
+        
+          <label class="bmi" for="Team_Lead_Experience">Team Lead Experience:</label>
+          <input type="text" id="Team_Lead_Experience" name="Team_Lead_Experience">
+       
+          <label for="Project_Manager_Experience">Project Manager Experience:</label>
+          <input type="text" id="Project_Manager_Experience" name="Project_Manager_Experience">
+
+          <label for="Certifications"> Certifications:</label>
+          <input type="text" id="Certifications" name="Certifications">
+          
+          <button class="button" type="submit"> <span> Submit </span> </button>
+
+      </fieldset>
+      </form>
+      <h1 align="center" style="color:#925081; font-zie:40px;">{{prediction_text}}</h1>
+      </div>
+      </div>
+      </body>
+</html>
